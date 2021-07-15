@@ -17,12 +17,10 @@ permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-facebook: "#"
-twitter: "#"
-linkedin: "#"
-github: "#"
-researchgate: "#"
-orcid: "#"
+facebook: "camoverride1"
+twitter: "camoverride"
+linkedin: "camoverride"
+github: "camoverride"
 
 highlighter: rouge
 markdown: kramdown
