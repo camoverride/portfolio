@@ -3,7 +3,7 @@
 title: Cameron Smith
 description: teacher | linguist | scientist
 
-# baseurl: /gradfolio #name of GitHub repository
+baseurl: / #gradfolio #name of GitHub repository
 url: smith.cam #custom url to be used instead of GitHub repository
 email: #
 
