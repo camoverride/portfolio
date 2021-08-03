@@ -1,20 +1,19 @@
-### your site title here
-
+# Basics
 title: Cameron Smith
-description: teacher | linguist | scientist
-
-# baseurl: / #gradfolio #name of GitHub repository
-url: smith.cam #custom url to be used instead of GitHub repository
-email: #
-
+description: teacher | mentor | linguist
+# baseurl: portfolio
+url: smith.cam
+email: camoverride@gmail.com
 
 highlighter: rouge
 markdown: kramdown
+
 
 # Pagination
 paginate: 4
 permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
+
 
 # Social media links in footer
 facebook: "camoverride1"
@@ -25,10 +24,8 @@ github: "camoverride"
 highlighter: rouge
 markdown: kramdown
 
-# Tracker
-analytics:
 
-#optimization -> compress.html
+# Optimization -> compress.html
 compress_html:
   clippings: [html,div, p, ul, td, h1, h2, h3, h4,link, meta, footer, nav, img, header, hr, br, head, style, li, ul, ol, time, main, script, title]
   comments: ["<!-- ", " -->"]
@@ -39,7 +36,8 @@ compress_html:
   profile: true
   startings: []
 
-#collection
+
+# Collection
 collections:
   projects:
     output: true
