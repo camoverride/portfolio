@@ -1,6 +1,6 @@
 # Basics
 title: Cameron Smith
-description: teacher | mentor | linguist
+description: artist
 # baseurl: portfolio
 url: smith.cam
 email: camoverride@gmail.com
@@ -16,8 +16,8 @@ paginate_path: /blog/page:num/
 
 
 # Social media links in footer
-facebook: "camoverride1"
 github: "camoverride"
+instagram: "camoverride"
 
 highlighter: rouge
 markdown: kramdown
