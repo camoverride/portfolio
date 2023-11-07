@@ -11,7 +11,7 @@ markdown: kramdown
 
 # Pagination
 paginate: 4
-permalink: /blog/:year/:title/
+permalink: /
 paginate_path: /blog/page:num/
 
 
