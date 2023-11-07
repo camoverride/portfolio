@@ -1,6 +1,6 @@
 ---
 layout: about
-permalink: /pornography
+permalink: /pornography.html
 profile:
   align: right
   image: profile.png

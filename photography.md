@@ -1,6 +1,6 @@
 ---
 layout: about
-permalink: /photography
+permalink: /photography.html
 profile:
   align: right
   image: profile.png
