@@ -14,7 +14,7 @@
   padding: 0;
   text-decoration: none;
   text-align: center;
-  color: #fefefe;
+  color: #000000;
   font-size: 1.5625rem;
   font-weight: normal;
   line-height: 1.5em;
@@ -81,11 +81,11 @@
 }
 
 .rounded-social-buttons .social-button.email {
-  background: #60c17d;
+  background: #ffffff;
 }
 
 .rounded-social-buttons .social-button.email:hover, .rounded-social-buttons .social-button.email:focus {
-  color: #60c17d;
+  color: red;
   background: #fefefe;
   border-color: #000000;
 }
