@@ -33,7 +33,7 @@ a {
   color: $brand-color;
   text-decoration: none;
   &:hover{
-    color: $text-color;
+    color: red;
 
     @media (prefers-color-scheme: dark) {
       color: $text-color-dark;
