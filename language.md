@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: language
 permalink: /language.html
 profile:
   align: right

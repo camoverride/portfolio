@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: surveillance
 permalink: /surveillance.html
 profile:
   align: right
