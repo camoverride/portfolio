@@ -1,20 +1,20 @@
 <div class="rounded-social-buttons">
 
-{%- if site.email -%}
-<a title="{{ _locale_string_email }}"
-class="social-button email" itemprop="email"
-href="mailto:{{ site.email | encode_email }}" target="_blank">
-<i class="far fa-envelope"></i>
-</a>
-{%- endif -%}
+    {%- if site.email -%}
+    <a title="{{ _locale_string_email }}"
+    class="social-button email" itemprop="email"
+    href="mailto:{{ site.email | encode_email }}" target="_blank">
+    <i class="far fa-envelope"></i>
+    </a>
+    {%- endif -%}
 
 
-{%- if site.instagram -%}
-<a title="{{ _locale_string_email }}"
-class="social-button email" itemprop="email"
-href="https://www.instagram.com/{{ site.instagram }}" target="_blank">
-<i class="fab fa-instagram"></i>    
-</a>
-{%- endif -%}
+    {%- if site.instagram -%}
+    <a title="{{ _locale_string_email }}"
+    class="social-button email" itemprop="email"
+    href="https://www.instagram.com/{{ site.instagram }}" target="_blank">
+    <i class="fab fa-instagram"></i>    
+    </a>
+    {%- endif -%}
 
 </div>
