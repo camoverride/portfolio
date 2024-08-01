@@ -1,6 +1,6 @@
 ---
-layout: surveillance
-permalink: /surveillance.html
+layout: transmissions
+permalink: /transmissions.html
 profile:
   align: right
   image: profile.png
