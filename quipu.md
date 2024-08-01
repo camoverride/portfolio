@@ -1,6 +1,6 @@
 ---
-layout: language
-permalink: /language.html
+layout: quipu
+permalink: /quipu.html
 profile:
   align: right
   image: profile.png
