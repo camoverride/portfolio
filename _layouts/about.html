@@ -2,78 +2,104 @@
 layout: default
 ---
 <style>
- .project-image-container {
-  position: relative;
-  display: inline-block;
-}
-
-.project-image-container img {
-  width: 100%; /* Ensure the image takes up the full width of its container */
-  height: auto; /* Maintain the aspect ratio of the image */
-  display: block; /* Remove any small gaps below the image */
-}
-
-.hover-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  max-width: 90%; /* Constrain the text width to 90% of the container */
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide any overflow */
-}
-
-.project-image-container:hover .hover-text {
-  opacity: 1;
-}
-
-/* Mobile Styles */
-@media (max-width: 767px) {
-  .hover-text {
-    opacity: 1; /* Always visible on mobile */
-    font-size: calc(2vw + 2vh); /* Dynamically resize based on viewport dimensions */
-    max-width: 100%; /* Ensure the text doesn't exceed the container width */
-    white-space: nowrap; /* Prevent wrapping */
-    overflow: hidden; /* Hide any overflow */
+  /* Container for the image grid */
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns layout for desktop */
+    gap: 20px; /* Space between the images */
   }
-}
 
+  /* Ensure the image containers are sized correctly within the grid */
+  .project-image-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* Maintain aspect ratio */
+    overflow: hidden;
+  }
 
+  /* Ensure the images fill their container */
+  .project-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover their container */
+    display: block;
+  }
+
+  .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    max-width: 90%;
+  }
+
+  .project-image-container:hover .hover-text {
+    opacity: 1;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 767px) {
+    .image-grid {
+      grid-template-columns: 1fr; /* Single column layout for mobile */
+    }
+    .hover-text {
+      opacity: 1; /* Always visible on mobile */
+    }
+  }
 </style>
 
-<a href="{{site.baseurl}}/fragments.html">
-  <div class="project-image-container" style="width: 32%;">
-    <img src="{{site.baseurl}}/assets/images/project_thumbnails/fragments_small.gif">
-    <div class="hover-text">FRAGMENTS</div>
-  </div>
-</a>
+<!-- Image Grid Container -->
+<div class="image-grid">
+  <a href="{{site.baseurl}}/fragments.html/">
+    <div class="project-image-container" id="fragments-container">
+      <img src="{{site.baseurl}}/assets/images/project_thumbnails/fragments_small.gif">
+      <div class="hover-text" id="fragments-text">FRAGMENTS</div>
+    </div>
+  </a>
 
-<a href="{{site.baseurl}}/transmissions.html">
-  <div class="project-image-container" style="width: 32%;">
-    <img src="{{site.baseurl}}/assets/images/profile_pics/2.jpg">
-    <div class="hover-text">TRANSMISSIONS</div>
-  </div>
-</a>
+  <a href="{{site.baseurl}}/transmissions.html/">
+    <div class="project-image-container" id="transmissions-container">
+      <img src="{{site.baseurl}}/assets/images/profile_pics/2.jpg">
+      <div class="hover-text" id="transmissions-text">TRANSMISSIONS</div>
+    </div>
+  </a>
+
+  <!-- Add more images here -->
+</div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-  const textElements = document.querySelectorAll('.hover-text');
-
-  textElements.forEach(textElement => {
-    const container = textElement.parentElement;
+  function scaleTextToFit(containerId, textId) {
+    const container = document.getElementById(containerId);
+    const text = document.getElementById(textId);
     const containerWidth = container.offsetWidth;
 
-    while (textElement.offsetWidth > containerWidth && parseFloat(window.getComputedStyle(textElement).fontSize) > 10) {
-      const currentFontSize = parseFloat(window.getComputedStyle(textElement).fontSize);
-      textElement.style.fontSize = (currentFontSize - 1) + 'px';
+    let scale = 1;
+    text.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+    while (text.offsetWidth > containerWidth && scale > 0.5) {
+      scale -= 0.01;
+      text.style.transform = `translate(-50%, -50%) scale(${scale})`;
     }
+  }
+
+  window.addEventListener('load', () => {
+    scaleTextToFit('fragments-container', 'fragments-text');
+    scaleTextToFit('transmissions-container', 'transmissions-text');
   });
-});
+
+  window.addEventListener('resize', () => {
+    scaleTextToFit('fragments-container', 'fragments-text');
+    scaleTextToFit('transmissions-container', 'transmissions-text');
+  });
 </script>
