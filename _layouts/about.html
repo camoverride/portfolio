@@ -61,3 +61,19 @@ layout: default
     <div class="hover-text">TRANSMISSIONS</div>
   </div>
 </a>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const textElements = document.querySelectorAll('.hover-text');
+
+  textElements.forEach(textElement => {
+    const container = textElement.parentElement;
+    const containerWidth = container.offsetWidth;
+
+    while (textElement.offsetWidth > containerWidth && parseFloat(window.getComputedStyle(textElement).fontSize) > 10) {
+      const currentFontSize = parseFloat(window.getComputedStyle(textElement).fontSize);
+      textElement.style.fontSize = (currentFontSize - 1) + 'px';
+    }
+  });
+});
+</script>
