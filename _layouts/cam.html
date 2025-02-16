@@ -30,4 +30,60 @@ layout: default
 
 <p>Or email me: camoverride@gmail.com</p>
 
+
+<p>R<rand chars="iI1l|!" speed="300">i</rand>ght&nbsp;
+no<rand chars="wWuV" speed="300">w</rand>&nbsp;
+I'<rand chars="Mm#" speed="300">m</rand>&nbsp;
+v<rand chars="e3E" speed="300">e</rand>ry&nbsp;
+i<rand chars="nN4x" speed="300">n</rand>tere<rand chars="sS5^" speed="300">s</rand>ted&nbsp;
+in&nbsp;
+r<rand chars="aA@X" speed="300">a</rand>ndomnes<rand chars="sS5" speed="300">s</rand> </p>
+    
+    
+
 <!-- <p>Visit my online store <a href="https://cam-smith-art.square.site/">[here]</a></p> -->
+
+<style>
+    rand {
+      display: inline-block;
+      width: 1ch; /* Fixed width based on the "0" character */
+      text-align: center;
+    }
+  </style>
+
+<script>
+    // Function to generate a random character from a specified set
+    function getRandomChar(chars) {
+      return chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+  
+    // Function to update all <rand> elements
+    function updateRandElements() {
+      const randElements = document.querySelectorAll('rand');
+      randElements.forEach(element => {
+        const originalChar = element.getAttribute('data-original') || element.textContent;
+        const chars = element.getAttribute('chars') || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+        element.setAttribute('data-original', originalChar); // Store the original character
+        element.textContent = getRandomChar(chars); // Replace with a random character from the specified set
+      });
+    }
+  
+    // Function to initialize <rand> elements and set their intervals
+    function initializeRandElements() {
+      const randElements = document.querySelectorAll('rand');
+      randElements.forEach(element => {
+        const speed = parseInt(element.getAttribute('speed')) || 1000; // Default to 1000ms if no speed is specified
+        setInterval(() => {
+          const chars = element.getAttribute('chars') || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+          const originalChar = element.getAttribute('data-original') || element.textContent;
+          element.setAttribute('data-original', originalChar);
+          element.textContent = getRandomChar(chars);
+        }, speed);
+      });
+    }
+  
+    // Initialize the <rand> elements on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeRandElements();
+    });
+  </script>
