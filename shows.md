@@ -1,6 +1,6 @@
 ---
-layout: cv
-permalink: /cv.html
+layout: whatsup
+permalink: /whatsup.html
 profile:
   align: right
   image: profile.png
