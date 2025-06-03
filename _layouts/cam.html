@@ -20,7 +20,7 @@ layout: default
     interactive pieces - use surveillance tools, AI, and mathematics to engage audiences
     in conversations about privacy, power, identity, and individual autonomy.
     My work has been exhibited in
-    solo shows such as <i>Who's Watching Who?</i> at Base Camp Studios and I continue
+    solo shows such as <i>Who's Watching Who?</i> <eye></eye> at Base Camp Studios and I continue
      to use my art to foster public understanding of emerging technologies.</p>
 
 <p>I teamed up with dissident AI scientist Myke Walton to write a zine:
@@ -47,6 +47,115 @@ r<rand chars="aA@X" speed="300">a</rand>ndomnes<rand chars="sS5" speed="300">s</
     
 
 <!-- <p>Visit my online store <a href="https://cam-smith-art.square.site/">[here]</a></p> -->
+
+
+
+
+
+
+
+
+
+
+<!-- Inline Eyeball CSS -->
+<style>
+  eye {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    position: relative;
+  }
+
+  eye .sclera {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0);
+    border: 1px solid #444;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  eye .iris {
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle at center, #0077ff, #001133);
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 0.05s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  eye .pupil {
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  eye .highlight {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    z-index: 3;
+  }
+</style>
+
+<!-- Inline Eyeball JS -->
+<script>
+  function initInlineEyes() {
+    document.querySelectorAll('eye').forEach(el => {
+      el.innerHTML = `
+        <div class="sclera">
+          <div class="iris">
+            <div class="pupil"></div>
+            <div class="highlight"></div>
+          </div>
+        </div>
+      `;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      document.querySelectorAll('eye').forEach(eye => {
+        const iris = eye.querySelector('.iris');
+        const rect = eye.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const dx = e.clientX - centerX;
+        const dy = e.clientY - centerY;
+
+        const angle = Math.atan2(dy, dx);
+        const dist = Math.min(4, Math.hypot(dx, dy)); // Smaller movement
+
+        const x = Math.cos(angle) * dist;
+        const y = Math.sin(angle) * dist;
+
+        iris.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initInlineEyes);
+</script>
+
+
+
+
+
+
+
 
 <style>
     rand {
