@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<div style="width: 100vw; margin: 0; padding: 0; box-sizing: border-box;">
+
+  <div style="display: flex; align-items: flex-start; max-width: 100%; padding: 20px;">
+    <!-- <img src="{{site.baseurl}}/assets/images/cam_transmissions.gif" style="max-width: 300px; height: auto; margin-right: 20px;"> -->
+    
+    <div>
+      <p>Zine Placeholder</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  rand {
+    display: inline-block;
+    width: 1ch;
+    text-align: center;
+  }
+</style>
+
+<script>
+  function getRandomChar(chars) {
+    return chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+
+  function updateRandElements() {
+    const randElements = document.querySelectorAll('rand');
+    randElements.forEach(element => {
+      const originalChar = element.getAttribute('data-original') || element.textContent;
+      const chars = element.getAttribute('chars') || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+      element.setAttribute('data-original', originalChar);
+      element.textContent = getRandomChar(chars);
+    });
+  }
+
+  function initializeRandElements() {
+    const randElements = document.querySelectorAll('rand');
+    randElements.forEach(element => {
+      const speed = parseInt(element.getAttribute('speed')) || 1000;
+      setInterval(() => {
+        const chars = element.getAttribute('chars') || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+        const originalChar = element.getAttribute('data-original') || element.textContent;
+        element.setAttribute('data-original', originalChar);
+        element.textContent = getRandomChar(chars);
+      }, speed);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeRandElements();
+  });
+</script>
